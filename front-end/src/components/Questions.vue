@@ -1,6 +1,7 @@
 <template>
     <v-layout>
-        <question @answer="updateAnswer" :questionData="question"></question>
+        <question v-if="showQuestionCard" @answer="updateAnswer" :questionData="question"></question>
+        <h1 v-else>Survey is now complete click here to get your pin to talk to our DR. Bot below are your scores and personality result have a nice day</h1>
     </v-layout>
 </template>
 
@@ -101,202 +102,202 @@
                         question: 'Do you generally do and say things quickly without stopping to think?',
                         index: '7'
                     },
-                    {
-                        question: 'Do you ever feel just miserable for no good reason?',
-                        index: '8'
-                    },
-                    {
-                        question: 'Would you do almost anything for a dare?',
-                        index: '9'
-                    },
-                    {
-                        question: 'Do you suddenly feel shy when you want to talk to an attractive stranger?',
-                        index: '10'
-                    },
-                    {
-                        question: 'Once in a while do you lose your temper and get angry?',
-                        index: '11'
-                    },
-                    {
-                        question: 'Do you often do things on the spur of the moment?',
-                        index: '12'
-                    },
-                    {
-                        question: 'Do you often worry about things you should have done or said?',
-                        index: '13'
-                    },
-                    {
-                        question: 'Generally do you prefer reading to meeting people?',
-                        index: '14'
-                    },
-                    {
-                        question: 'Are your feelings rather easily hurt?',
-                        index: '15'
-                    },
-                    {
-                        question: 'Do you like going out a lot?',
-                        index: '16'
-                    },
-                    {
-                        question: 'Do you occasionally have thoughts and ideas that you would not like other people to know about?',
-                        index: '17'
-                    },
-                    {
-                        question: 'Are you sometimes bubbling over with energy and sometimes very sluggish?',
-                        index: '18'
-                    },
-                    {
-                        question: 'Do you prefer to have few but special friends?',
-                        index: '19'
-                    },
-                    {
-                        question: 'Do you daydream a lot?',
-                        index: '20'
-                    },
-                    {
-                        question: 'When people shout at you do you shout back?',
-                        index: '21'
-                    },
-                    {
-                        question: 'Are you often troubled about feelings of guilt?',
-                        index: '22'
-                    },
-                    {
-                        question: 'Are all your habits good and desirable ones?',
-                        index: '23'
-                    },
-                    {
-                        question: 'Can you usually let yourself go and enjoy yourself a lot at a lively party?',
-                        index: '24'
-                    },
-                    {
-                        question: 'Would you call yourself tense or highly strung?',
-                        index: '25'
-                    },
-                    {
-                        question: 'Do other people think of you as being very lively?',
-                        index: '26'
-                    },
-                    {
-                        question: 'After you have done something important, do you come away feeling you could have done better?',
-                        index: '27'
-                    },
-                    {
-                        question: 'Are you mostly quiet when you are with other people?',
-                        index: '28'
-                    },
-                    {
-                        question: 'Do you sometimes gossip?',
-                        index: '29'
-                    },
-                    {
-                        question: 'Do ideas run through your head so that you cant sleep?',
-                        index: '30'
-                    },
-                    {
-                        question: 'If there is something you want to know about, would you rather look it up in a book than talk to someone about it?',
-                        index: '31'
-                    },
-                    {
-                        question: 'Do you get palpitations or thumping in your heart?',
-                        index: '32'
-                    },
-                    {
-                        question: 'Do you like the kind of work that you need to pay close attention to?',
-                        index: '33'
-                    },
-                    {
-                        question: 'Do you get attacks of shaking or trembling?',
-                        index: '34'
-                    },
-                    {
-                        question: 'Would you always declare everything at customs, even if you knewyou could never be found out?',
-                        index: '35'
-                    },
-                    {
-                        question: 'Do you hate being with a crowd who play jokes on one another?',
-                        index: '36'
-                    },
-                    {
-                        question: 'Are you an irritable person?',
-                        index: '37'
-                    },
-                    {
-                        question: 'Do you like doing things in which you have to act quickly?',
-                        index: '38'
-                    },
-                    {
-                        question: 'Do you worry about awful things that might happen?',
-                        index: '39'
-                    },
-                    {
-                        question: 'Are you slow and unhurried in the way you move?',
-                        index: '40'
-                    },
-                    {
-                        question: 'Have you ever been late for an appointment or work?',
-                        index: '41'
-                    },
-                    {
-                        question: 'Do you have many nightmares?',
-                        index: '42'
-                    },
-                    {
-                        question: 'Do you like talking to people so much that you never miss a chance of talking to a stranger?',
-                        index: '43'
-                    },
-                    {
-                        question: 'Are you troubled by aches and pains?',
-                        index: '44'
-                    },
-                    {
-                        question: 'Would you be very unhappy if you could not see lots of people most of the time?',
-                        index: '45'
-                    },
-                    {
-                        question: 'Would you call yourself a nervous person?',
-                        index: '46'
-                    },
-                    {
-                        question: 'Of all the people you know, are there some whom you definitely do not like?',
-                        index: '47'
-                    },
-                    {
-                        question: 'Would you say that you were fairly self-confident?',
-                        index: '48'
-                    },
-                    {
-                        question: 'Are you easily hurt when people find fault with you or your work?',
-                        index: '49'
-                    },
-                    {
-                        question: 'Do you find it hard to really enjoy yourself at a lively party?',
-                        index: '50'
-                    },
-                    {
-                        question: 'Are you troubled by feelings of inferiority?',
-                        index: '51'
-                    },
-                    {
-                        question: 'Can you easily get some life into a dull party?',
-                        index: '52'
-                    },
-                    {
-                        question: 'Do you sometimes talk about things you know nothing about?',
-                        index: '53'
-                    },
-                    {
-                        question: 'Do you worry about your health?',
-                        index: '54'
-                    },
-                    {
-                        question: 'Do you like playing pranks on others?',
-                        index: '55'
-                    },
-                    {
-                        question: 'Do you suffer from sleeplessness?',
-                        index: '56'
-                    }
+                    // {
+                    //     question: 'Do you ever feel just miserable for no good reason?',
+                    //     index: '8'
+                    // },
+                    // {
+                    //     question: 'Would you do almost anything for a dare?',
+                    //     index: '9'
+                    // },
+                    // {
+                    //     question: 'Do you suddenly feel shy when you want to talk to an attractive stranger?',
+                    //     index: '10'
+                    // },
+                    // {
+                    //     question: 'Once in a while do you lose your temper and get angry?',
+                    //     index: '11'
+                    // },
+                    // {
+                    //     question: 'Do you often do things on the spur of the moment?',
+                    //     index: '12'
+                    // },
+                    // {
+                    //     question: 'Do you often worry about things you should have done or said?',
+                    //     index: '13'
+                    // },
+                    // {
+                    //     question: 'Generally do you prefer reading to meeting people?',
+                    //     index: '14'
+                    // },
+                    // {
+                    //     question: 'Are your feelings rather easily hurt?',
+                    //     index: '15'
+                    // },
+                    // {
+                    //     question: 'Do you like going out a lot?',
+                    //     index: '16'
+                    // },
+                    // {
+                    //     question: 'Do you occasionally have thoughts and ideas that you would not like other people to know about?',
+                    //     index: '17'
+                    // },
+                    // {
+                    //     question: 'Are you sometimes bubbling over with energy and sometimes very sluggish?',
+                    //     index: '18'
+                    // },
+                    // {
+                    //     question: 'Do you prefer to have few but special friends?',
+                    //     index: '19'
+                    // },
+                    // {
+                    //     question: 'Do you daydream a lot?',
+                    //     index: '20'
+                    // },
+                    // {
+                    //     question: 'When people shout at you do you shout back?',
+                    //     index: '21'
+                    // },
+                    // {
+                    //     question: 'Are you often troubled about feelings of guilt?',
+                    //     index: '22'
+                    // },
+                    // {
+                    //     question: 'Are all your habits good and desirable ones?',
+                    //     index: '23'
+                    // },
+                    // {
+                    //     question: 'Can you usually let yourself go and enjoy yourself a lot at a lively party?',
+                    //     index: '24'
+                    // },
+                    // {
+                    //     question: 'Would you call yourself tense or highly strung?',
+                    //     index: '25'
+                    // },
+                    // {
+                    //     question: 'Do other people think of you as being very lively?',
+                    //     index: '26'
+                    // },
+                    // {
+                    //     question: 'After you have done something important, do you come away feeling you could have done better?',
+                    //     index: '27'
+                    // },
+                    // {
+                    //     question: 'Are you mostly quiet when you are with other people?',
+                    //     index: '28'
+                    // },
+                    // {
+                    //     question: 'Do you sometimes gossip?',
+                    //     index: '29'
+                    // },
+                    // {
+                    //     question: 'Do ideas run through your head so that you cant sleep?',
+                    //     index: '30'
+                    // },
+                    // {
+                    //     question: 'If there is something you want to know about, would you rather look it up in a book than talk to someone about it?',
+                    //     index: '31'
+                    // },
+                    // {
+                    //     question: 'Do you get palpitations or thumping in your heart?',
+                    //     index: '32'
+                    // },
+                    // {
+                    //     question: 'Do you like the kind of work that you need to pay close attention to?',
+                    //     index: '33'
+                    // },
+                    // {
+                    //     question: 'Do you get attacks of shaking or trembling?',
+                    //     index: '34'
+                    // },
+                    // {
+                    //     question: 'Would you always declare everything at customs, even if you knewyou could never be found out?',
+                    //     index: '35'
+                    // },
+                    // {
+                    //     question: 'Do you hate being with a crowd who play jokes on one another?',
+                    //     index: '36'
+                    // },
+                    // {
+                    //     question: 'Are you an irritable person?',
+                    //     index: '37'
+                    // },
+                    // {
+                    //     question: 'Do you like doing things in which you have to act quickly?',
+                    //     index: '38'
+                    // },
+                    // {
+                    //     question: 'Do you worry about awful things that might happen?',
+                    //     index: '39'
+                    // },
+                    // {
+                    //     question: 'Are you slow and unhurried in the way you move?',
+                    //     index: '40'
+                    // },
+                    // {
+                    //     question: 'Have you ever been late for an appointment or work?',
+                    //     index: '41'
+                    // },
+                    // {
+                    //     question: 'Do you have many nightmares?',
+                    //     index: '42'
+                    // },
+                    // {
+                    //     question: 'Do you like talking to people so much that you never miss a chance of talking to a stranger?',
+                    //     index: '43'
+                    // },
+                    // {
+                    //     question: 'Are you troubled by aches and pains?',
+                    //     index: '44'
+                    // },
+                    // {
+                    //     question: 'Would you be very unhappy if you could not see lots of people most of the time?',
+                    //     index: '45'
+                    // },
+                    // {
+                    //     question: 'Would you call yourself a nervous person?',
+                    //     index: '46'
+                    // },
+                    // {
+                    //     question: 'Of all the people you know, are there some whom you definitely do not like?',
+                    //     index: '47'
+                    // },
+                    // {
+                    //     question: 'Would you say that you were fairly self-confident?',
+                    //     index: '48'
+                    // },
+                    // {
+                    //     question: 'Are you easily hurt when people find fault with you or your work?',
+                    //     index: '49'
+                    // },
+                    // {
+                    //     question: 'Do you find it hard to really enjoy yourself at a lively party?',
+                    //     index: '50'
+                    // },
+                    // {
+                    //     question: 'Are you troubled by feelings of inferiority?',
+                    //     index: '51'
+                    // },
+                    // {
+                    //     question: 'Can you easily get some life into a dull party?',
+                    //     index: '52'
+                    // },
+                    // {
+                    //     question: 'Do you sometimes talk about things you know nothing about?',
+                    //     index: '53'
+                    // },
+                    // {
+                    //     question: 'Do you worry about your health?',
+                    //     index: '54'
+                    // },
+                    // {
+                    //     question: 'Do you like playing pranks on others?',
+                    //     index: '55'
+                    // },
+                    // {
+                    //     question: 'Do you suffer from sleeplessness?',
+                    //     index: '56'
+                    // }
                 ],
                 question: '',
                 quesIndex: 0,
@@ -367,6 +368,7 @@
                 counter1: 0,
                 counter2: 0,
                 counter3: 0,
+                showQuestionCard: true
             }
         },
         created() {
@@ -374,32 +376,31 @@
             this.question = this.questions[0];
         },
         methods: {
-            updateQuestion() {
-                this.quesIndex++;
-                if (this.quesIndex < this.questions.length) {
-                    this.question = this.questions[this.quesIndex];
-                }
-            },
             updateAnswer(data) {
                 // console.log(data);
-                this.selectedAnswers.push(data);
-                if (this.evaluationIndex1.hasOwnProperty(data.index)) {
-                    if (this.evaluationIndex1[data.index] === data.answer) {
-                        this.counter1++;
+                this.quesIndex++;
+                if (this.quesIndex < this.questions.length) {
+                    this.selectedAnswers.push(data);
+                    if (this.evaluationIndex1.hasOwnProperty(data.index)) {
+                        if (this.evaluationIndex1[data.index] === data.answer) {
+                            this.counter1++;
+                        }
+                    } else if (this.evaluationIndex2.hasOwnProperty(data.index)) {
+                        if (this.evaluationIndex2[data.index] === data.answer) {
+                            this.counter2++;
+                        }
+                    } else {
+                        if (this.evaluationIndex3[data.index] === data.answer) {
+                            this.counter3++;
+                        }
                     }
-                } else if (this.evaluationIndex2.hasOwnProperty(data.index)) {
-                    if (this.evaluationIndex2[data.index] === data.answer) {
-                        this.counter1++;
-                    }
+                    // console.log('Counter1:-', this.counter1);
+                    // console.log('Counter2:-', this.counter2);
+                    // console.log('Counter3:-', this.counter3);
+                    this.question = this.questions[this.quesIndex];
                 } else {
-                    if (this.evaluationIndex3[data.index] === data.answer) {
-                        this.counter1++;
-                    }
+                    this.showQuestionCard = false;
                 }
-                console.log('Counter1:-', this.counter1);
-                console.log('Counter2:-', this.counter2);
-                console.log('Counter3:-', this.counter3);
-                this.updateQuestion();
             },
             /**
              * Randomize array element order in-place.
