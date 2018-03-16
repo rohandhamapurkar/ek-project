@@ -1,10 +1,9 @@
 <template>
     <div class="Application">
         <v-toolbar dark color="primary">
-            <v-toolbar-side-icon></v-toolbar-side-icon>
-            <v-toolbar-title class="white--text">Title</v-toolbar-title>
+            <v-toolbar-title class="white--text">Personality Test</v-toolbar-title>
             <v-spacer></v-spacer>
-            <v-btn icon>
+            <!--v-btn icon>
                 <v-icon>search</v-icon>
             </v-btn>
             <v-btn icon>
@@ -15,7 +14,7 @@
             </v-btn>
             <v-btn icon>
                 <v-icon>more_vert</v-icon>
-            </v-btn>
+            </v-btn-->
         </v-toolbar>
         <router-view></router-view>
         <v-footer height="auto" :fixed=true >

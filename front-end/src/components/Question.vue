@@ -1,10 +1,14 @@
 <template>
     <v-flex xs12 sm6 offset-sm3>
-        <v-card class="cardStyle">
+        <v-card color="red" class="cardStyle">
             <v-card-title primary-title>
-                <div>
-                    <h1 class="headline">Q. {{questionData}}</h1>
-                </div>
+                <v-card color="green"  class="innerCardStyle">
+                    <v-card-title primary-title>
+                        <div>
+                            <h1 class="headline">Q. {{questionData.question}}</h1>
+                        </div>
+                    </v-card-title>
+                </v-card>
             </v-card-title>
             <div class="optionContainer">
                 <v-btn color="orange" @click="emitData(true)">Yes</v-btn>
@@ -23,7 +27,9 @@
         },
         methods: {
             emitData(answer) {
-                this.$emit('answer', answer);
+                let temp = Object.assign({}, this.questionData)
+                temp.answer = answer
+                this.$emit('answer', temp);
             }
         },
         props: [
@@ -38,6 +44,12 @@
         min-width: 350px;
         max-width: 450px;
         margin-top: 20px;
+    }
+    .innerCardStyle {
+        min-width: 350px;
+        max-width: 450px;
+        margin-top: 20px;
+        opacity: 0.7;
     }
     .optionContainer {
         min-width: 350px;
