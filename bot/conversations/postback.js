@@ -1,6 +1,6 @@
 const string = require('../strings');
 const axios = require('axios');
-module.exports = function (controller, bot, apiai) {
+module.exports = function (controller, bot, apiai,User) {
     controller.on('facebook_postback', function (bot, message) {
         console.log("*&*&*&*&*&*&*&*&*&*&*&",message);
         var payload = {};

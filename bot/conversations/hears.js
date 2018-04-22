@@ -1,4 +1,4 @@
-module.exports = function (controller, bot, apiai) {
+module.exports = function (controller, bot, apiai,User) {
     controller.hears('.*','message_received',function(bot,message){
         console.log(message);
         if (message.type !== 'facebook_postback') {
