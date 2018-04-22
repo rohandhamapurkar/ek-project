@@ -65,6 +65,7 @@ module.exports = function(controller,bot,apiai){
                 processResp.text = 'trigger_family_extrovert_last_time';
                 console.log(JSON.stringify(processResp));
                 apiai.process(processResp,bot);
+                convo.stop();
             });
         });
     }).action('family_extrovert_last_time',function (message, resp, bot) {
