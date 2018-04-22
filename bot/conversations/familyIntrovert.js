@@ -133,13 +133,13 @@ module.exports = function(controller,bot,apiai){
         })
         template.quick_replies.push({
             "content_type":"text",
-            "title":"You didnt feel like talking",
-            "payload":"notTalk",
+            "title":"Dont feel like it",
+            "payload":"You didnt feel like talking",
         })
         template.quick_replies.push({
             "content_type":"text",
             "title":"Something Went Wrong",
-            "payload":"wrong",
+            "payload":"Something Went Wrong with us",
         })
         bot.reply(message,template);
     }).action('share_something',function (message, resp, bot) {
