@@ -13,9 +13,9 @@ module.exports = function (controller, bot, apiai,User) {
             bot.reply(message,string.testQuickreplyMenu);
         } else if(payload.text === string.start_over){
             if(User.hasOwnProperty(message.user)){
-                axios.delete("https://api.dialogflow.com/v1/contexts?sessionId=" + User[message.user], {
+                axios.delete("https://api.dialogflow.com/v2/contexts?sessionId=" + User[message.user], {
                     headers: {
-                        authorization: 'Bearer '+env.clientAccessToken
+                        authorization: 'Bearer 216dd6479acc4c63a223fc33b034eefb'
                     }
                     }).then(function (response) {
                     console.log("Deleted session");
