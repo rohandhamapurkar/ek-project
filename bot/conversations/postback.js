@@ -12,16 +12,19 @@ module.exports = function (controller, bot, apiai) {
         if (payload.text === string.getStarted) {
             bot.reply(message,string.testQuickreplyMenu);
         } else if(payload.text === string.start_over){
-            axios.delete("https://api.dialogflow.com/v1/contexts?sessionId=" + User[message.user], {
-                headers: {
-                    authorization: 'Bearer '+env.clientAccessToken
-                }
-                }).then(function (response) {
-                console.log("Deleted session");
-                })
-                .catch(function (error) {
-                console.error("NLP session delete error 1 getVendorDetails", error);
-                });
+            if(User.hasProperty(message.user)){
+                axios.delete("https://api.dialogflow.com/v1/contexts?sessionId=" + User[message.user], {
+                    headers: {
+                        authorization: 'Bearer '+env.clientAccessToken
+                    }
+                    }).then(function (response) {
+                    console.log("Deleted session");
+                    })
+                    .catch(function (error) {
+                    console.error("NLP session delete error 1 getVendorDetails", error);
+                    });
+            }
+            bot.reply(message,"Started Over!")
         }
     })
 }
