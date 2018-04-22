@@ -24,7 +24,8 @@ module.exports = function (controller, bot, apiai,User) {
                     console.error("NLP session delete error 1 getVendorDetails", error);
                     });
             }
-            bot.reply(message,"Started Over!")
+            bot.reply(message,"Started Over!");
+            bot.reply(message,string.testQuickreplyMenu);
         }
     })
 }
