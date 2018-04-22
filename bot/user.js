@@ -18,13 +18,11 @@ controller.hears('.*','message_received',function(bot,message){
 });
 apiai.all(function (message, resp, bot) {
     console.log(resp.result.action);
-    bot.reply(message,string.testQuickreply);
-    if(!a){
-        message.text = "family_extrovert";
-        apiai.process(message,bot);
-        a = true;
-    }
     //bot.reply(message, resp.result.fulfillment.speech);
+})
+apiai.action('smalltalk.greetings.hello', function (message, resp, bot) {
+    bot.reply(message,resp.result.fulfillment.speech);
+    bot.reply(message,string.testQuickreplyMenu);
 })
 require("./conversations/familyIntrovert")(controller,bot,apiai);
 require("./conversations/familyExtrovert")(controller,bot,apiai);
