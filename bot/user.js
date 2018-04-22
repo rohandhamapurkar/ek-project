@@ -19,7 +19,7 @@ apiai.all(function (message, resp, bot) {
             Authorization: "Bearer 216dd6479acc4c63a223fc33b034eefb"
         }}).then(function (response) {
             console.log(response);
-            bot.reply(message, response.result.fulfillment.speech);
+            bot.reply(message, response.data.result.fulfillment.speech);
           })
           .catch(function (error) {
             console.log(error);
