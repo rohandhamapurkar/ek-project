@@ -61,10 +61,11 @@ module.exports = function(controller,bot,apiai){
         bot.startConversation(message, function (err, convo) {
             convo.ask(resp.result.fulfillment.speech, function (response, convo) {
                 console.log("&^&&^&^&^&^&^&^&^&^&^&"+JSON.stringify(response))
-                let testText = response.text;
-                response.text = 'family_extrovert_last_time';
-                console.log(response);
-                apiai.process(response,bot);
+                let processResp = Object.assign({},response);
+                let testText = processResp.text; //watson
+                processResp.text = 'family_extrovert_last_time';
+                console.log(JSON.stringify(processResp));
+                apiai.process(processResp,bot);
             });
         });
     }).action('family_extrovert_last_time',function (message, resp, bot) {
