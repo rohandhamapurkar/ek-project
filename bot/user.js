@@ -21,8 +21,9 @@ apiai.all(function (message, resp, bot) {
     //bot.reply(message, resp.result.fulfillment.speech);
 })
 apiai.action('smalltalk.greetings.hello', function (message, resp, bot) {
-    bot.reply(message,resp.result.fulfillment.speech);
-    bot.reply(message,string.testQuickreplyMenu);
+    bot.reply(message,resp.result.fulfillment.speech,function(err){
+        bot.reply(message,string.testQuickreplyMenu);
+    });  
 })
 require("./conversations/familyIntrovert")(controller,bot,apiai);
 require("./conversations/familyExtrovert")(controller,bot,apiai);
