@@ -7,7 +7,7 @@ const apiai = apiaibotkit("216dd6479acc4c63a223fc33b034eefb");
 let a = false;
 controller.hears('.*','message_received',function(bot,message){
     if (message.type === 'message_received') {
-        if(message.quick_reply == undefined){
+        if(message.quick_reply != undefined){
             message.text = message.quick_reply.payload;
             apiai.process(message, bot);
         } else {
