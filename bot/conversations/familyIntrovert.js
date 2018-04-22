@@ -61,6 +61,7 @@ module.exports = function(controller,bot,apiai){
         let template = Object.assign({},string.testQuickreply);
         template.quick_replies = [];
         template.text = "";
+        template.text = resp.result.fulfillment.speech;
         template.quick_replies.push({
             "content_type":"text",
             "title":"Yes",
@@ -78,6 +79,7 @@ module.exports = function(controller,bot,apiai){
         let template = Object.assign({},string.testQuickreply);
         template.quick_replies = [];
         template.text = "";
+        template.text = resp.result.fulfillment.speech;
         template.quick_replies.push({
             "content_type":"text",
             "title":"Somedays Ago",
@@ -96,6 +98,7 @@ module.exports = function(controller,bot,apiai){
         let template = Object.assign({},string.testQuickreply);
         template.quick_replies = [];
         template.text = "";
+        template.text = resp.result.fulfillment.speech;
         template.quick_replies.push({
             "content_type":"text",
             "title":"Relieved",
@@ -122,6 +125,7 @@ module.exports = function(controller,bot,apiai){
         let template = Object.assign({},string.testQuickreply);
         template.quick_replies = [];
         template.text = "";
+        template.text = resp.result.fulfillment.speech;
         template.quick_replies.push({
             "content_type":"text",
             "title":"Time",
@@ -142,6 +146,7 @@ module.exports = function(controller,bot,apiai){
         let template = Object.assign({},string.testQuickreply);
         template.quick_replies = [];
         template.text = "";
+        template.text = resp.result.fulfillment.speech;
         template.quick_replies.push({
             "content_type":"text",
             "title":"Yes",
