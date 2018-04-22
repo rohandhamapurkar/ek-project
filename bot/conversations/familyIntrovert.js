@@ -1,6 +1,8 @@
 
 module.exports = function(controller,bot,apiai){
-    apiai.action('family_1',function (message, resp, bot) {
+    apiai.action('family_introvert',function (message, resp, bot) {
+        bot.reply(message,resp.result.fulfillment.speech);
+    }).action('family_1',function (message, resp, bot) {
         bot.reply(message,resp.result.fulfillment.speech);
     }).action('closest_family',function (message, resp, bot) {
         bot.reply(message,resp.result.fulfillment.speech);
