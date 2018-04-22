@@ -5,7 +5,7 @@
         </v-toolbar-->
         <router-view></router-view>
         <v-footer height="auto" :fixed=true>
-            <v-card flat tile class="teal lighten-2 white--text text-xs-center" style="width:100%">
+            <v-card flat tile class="black white--text text-xs-center" style="width:100%">
                 <v-card-text class="white--text">
                     &copy;2018 — <strong>Vuetify</strong>
                 </v-card-text>

@@ -8,15 +8,16 @@
             <v-flex xs12 sm6 offset-sm3>
                 <v-card class="testComplete">
                     <v-card-title primary-title>
-                        <h1 class="headline">The test is now complete click show result to see your personality</h1>
+                        <h1 class="headline">The personality test is now complete your session pin is: {{pin}}</h1>
                     </v-card-title>
                     <div class="optionContainer">
                         <v-btn @click.native="show = !show">Show Result</v-btn>
-                        <v-btn >Talk to the bot</v-btn>
+                        <v-btn v-if="lie" href="https://facebook.com">Talk to the bot</v-btn>
+                        <v-btn v-else @click="restartTest">Retake Test</v-btn>
                     </div>
-                <v-card-text v-show="show">
-                    <h1>I'm a thing. But</h1>
-                </v-card-text>
+                    <v-card-text v-show="show">
+                        <h1>{{result}}</h1>
+                    </v-card-text>
                 </v-card>
             </v-flex>
         </v-layout>
@@ -93,10 +94,10 @@
                         question: 'Do you often long for excitement?',
                         index: '0'
                     },
-                    // {
-                    //     question: 'Do you often need understanding friends to cheer you up?',
-                    //     index: '1'
-                    // },
+                    {
+                        question: 'Do you often need understanding friends to cheer you up?',
+                        index: '1'
+                    },
                     // {
                     //     question: 'Are you usually carefree?',
                     //     index: '2'
@@ -387,7 +388,10 @@
                 counter1: 0,
                 counter2: 0,
                 counter3: 0,
-                showQuestionCard: true
+                showQuestionCard: true,
+                pin: '',
+                result: '',
+                lie: true
             }
         },
         created() {
@@ -396,28 +400,42 @@
         },
         methods: {
             updateAnswer(data) {
-                // console.log(data);
                 this.quesIndex++;
-                if (this.quesIndex < this.questions.length) {
-                    this.selectedAnswers.push(data);
-                    if (this.evaluationIndex1.hasOwnProperty(data.index)) {
-                        if (this.evaluationIndex1[data.index] === data.answer) {
-                            this.counter1++;
-                        }
-                    } else if (this.evaluationIndex2.hasOwnProperty(data.index)) {
-                        if (this.evaluationIndex2[data.index] === data.answer) {
-                            this.counter2++;
+                this.selectedAnswers.push(data);
+                if (this.evaluationIndex1.hasOwnProperty(data.index)) {
+                    if (this.evaluationIndex1[data.index] === data.answer) {
+                        this.counter1++;
+                    }
+                } else if (this.evaluationIndex2.hasOwnProperty(data.index)) {
+                    if (this.evaluationIndex2[data.index] === data.answer) {
+                        this.counter2++;
+                    }
+                } else {
+                    if (this.evaluationIndex3[data.index] === data.answer) {
+                        this.counter3++;
+                    }
+                }
+                this.question = this.questions[this.quesIndex];
+                if (this.quesIndex == this.questions.length) {
+                    if (this.counter3 < 4 && false) {
+                        if (this.counter1 >= 18) {
+                            this.result = 'Your personality is of a Strong Extrovert'
+                            this.pin = "67-67-54"
+                        } else if (this.counter1 >= 12 && this.counter1 < 18) {
+                            this.result = 'Your personality is of an Extrovert'
+                            this.pin = "87-67-54"
+                        } else if (this.counter1 >= 7 && this.counter1 < 12) {
+                            this.result = 'Your personality is of an Introvert'
+                            this.pin = "46-95-91"
+                        } else {
+                            this.result = 'Your personality is of a Strong Introvert'
+                            this.pin = "12-34-91"
                         }
                     } else {
-                        if (this.evaluationIndex3[data.index] === data.answer) {
-                            this.counter3++;
-                        }
+                        this.result = "You were not true with the test";
+                        this.pin = "NOT APPLICABLE";
+                        this.lie = false;
                     }
-                    // console.log('Counter1:-', this.counter1);
-                    // console.log('Counter2:-', this.counter2);
-                    // console.log('Counter3:-', this.counter3);
-                    this.question = this.questions[this.quesIndex];
-                } else {
                     this.showQuestionCard = false;
                 }
             },
@@ -433,6 +451,20 @@
                     array[j] = temp;
                 }
                 return array
+            },
+            restartTest() {
+                this.question =  '';
+                this.selectedAnswers = [];
+                this.quesIndex= 0;
+                this.counter1 = 0;
+                this.counter2 = 0;
+                this.counter3 = 0;
+                this.result = "";
+                this.pin = "";
+                this.lie = true;
+                this.showQuestionCard = true;
+                this.questions = this.shuffleArray(Object.assign([], this.questions));
+                this.question = this.questions[0];
             }
         },
         components: {
