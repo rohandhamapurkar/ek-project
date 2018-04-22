@@ -1,7 +1,20 @@
-
+const string = require('../strings')
 module.exports = function(controller,bot,apiai){
     apiai.action('family_introvert',function (message, resp, bot) {
-        bot.reply(message,resp.result.fulfillment.speech);
+        let template = string.testQuickreply;
+        template.text = resp.result.fulfillment.speech;
+        template.quick_replies.push({
+            "content_type":"text",
+            "title":"Joint family",
+            "payload":"joint",
+        })
+        template.quick_replies.push({
+            "content_type":"text",
+            "title":"Small family",
+            "payload":"small",
+        })
+        bot.reply(message,template);
+        template.quick_replies = [];
     }).action('family_1',function (message, resp, bot) {
         bot.reply(message,resp.result.fulfillment.speech);
     }).action('closest_family',function (message, resp, bot) {

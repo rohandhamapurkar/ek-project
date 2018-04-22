@@ -1,17 +1,8 @@
 module.exports = {
     getStartedSetup: '{"text":"GET_STARTED"}',
     testQuickreply : {
-        "text": "Here is a quick reply!",
+        "text": "",
         "quick_replies":[
-        {
-            "content_type":"text",
-            "title":"Search",
-            "payload":"<POSTBACK_PAYLOAD>",
-            "image_url":"http://example.com/img/red.png"
-        },
-        {
-            "content_type":"location"
-        }
         ]
     },
     persistentMenu: [
