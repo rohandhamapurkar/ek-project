@@ -1,7 +1,7 @@
 const string = require('../strings')
 module.exports = function(controller,bot,apiai){
     apiai.action('family_introvert',function (message, resp, bot) {
-        let template = string.testQuickreply;
+        let template = Object.assign({},string.testQuickreply);
         template.quick_replies = [];
         template.text = "";
         template.text = resp.result.fulfillment.speech;
@@ -17,7 +17,7 @@ module.exports = function(controller,bot,apiai){
         })
         bot.reply(message,template);
     }).action('family_1',function (message, resp, bot) {
-        let template = string.testQuickreply;
+        let template = Object.assign({},string.testQuickreply);
         template.quick_replies = [];
         template.text = "";
         template.text = resp.result.fulfillment.speech;
@@ -58,7 +58,7 @@ module.exports = function(controller,bot,apiai){
         })
         bot.reply(message,template);
     }).action('closest_family',function (message, resp, bot) {
-        let template = string.testQuickreply;
+        let template = Object.assign({},string.testQuickreply);
         template.quick_replies = [];
         template.text = "";
         template.quick_replies.push({
@@ -75,7 +75,7 @@ module.exports = function(controller,bot,apiai){
     }).action('closest_family_none',function (message, resp, bot) {
         bot.reply(message,resp.result.fulfillment.speech);
     }).action('regular_yes',function (message, resp, bot) {
-        let template = string.testQuickreply;
+        let template = Object.assign({},string.testQuickreply);
         template.quick_replies = [];
         template.text = "";
         template.quick_replies.push({
@@ -93,7 +93,7 @@ module.exports = function(controller,bot,apiai){
         message.text = "family_reasons"
         apiai.process(message,bot);
     }).action('time_days',function (message, resp, bot) {
-        let template = string.testQuickreply;
+        let template = Object.assign({},string.testQuickreply);
         template.quick_replies = [];
         template.text = "";
         template.quick_replies.push({
@@ -119,7 +119,7 @@ module.exports = function(controller,bot,apiai){
         message.text = "share_something"
         apiai.process(message,bot);
     }).action('family_reasons',function (message, resp, bot) {
-        let template = string.testQuickreply;
+        let template = Object.assign({},string.testQuickreply);
         template.quick_replies = [];
         template.text = "";
         template.quick_replies.push({
@@ -139,7 +139,7 @@ module.exports = function(controller,bot,apiai){
         })
         bot.reply(message,template);
     }).action('share_something',function (message, resp, bot) {
-        let template = string.testQuickreply;
+        let template = Object.assign({},string.testQuickreply);
         template.quick_replies = [];
         template.text = "";
         template.quick_replies.push({
