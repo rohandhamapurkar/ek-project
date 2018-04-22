@@ -5,6 +5,22 @@ module.exports = {
         "quick_replies":[
         ]
     },
+    testQuickreplyMenu : {
+        "text": "Choose one:",
+        "quick_replies":[
+            {
+                "content_type":"text",
+                "title":"Introvert Family",
+                "payload":"family_introvert"
+            },
+            {
+                "content_type":"text",
+                "title":"Extrovert Family",
+                "payload":"family_extrovert"
+            }
+
+        ]
+    },
     persistentMenu: [
         { //persistent menu
             "locale": "default",

@@ -5,6 +5,7 @@ const string = require('./strings');
 const axios = require('axios');
 const apiai = apiaibotkit("216dd6479acc4c63a223fc33b034eefb");
 let a = false;
+require("./conversations/postback")(controller,bot,apiai);
 controller.hears('.*','message_received',function(bot,message){
     if (message.type === 'message_received') {
         if(message.quick_reply != undefined){
@@ -27,5 +28,5 @@ apiai.all(function (message, resp, bot) {
 })
 require("./conversations/familyIntrovert")(controller,bot,apiai);
 require("./conversations/familyExtrovert")(controller,bot,apiai);
-require("./conversations/postback")(controller,bot,apiai);
+
 

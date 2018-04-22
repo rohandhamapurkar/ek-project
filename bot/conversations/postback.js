@@ -1,7 +1,15 @@
+const string = require('../strings');
 module.exports = function (controller, bot, apiai) {
     controller.on('facebook_postback', function (bot, message) {
-        message.text = message.quick_reply.payload;
-        console.error(message);
-        apiai.process(message, bot);
+        var payload = {};
+        try {
+          payload = JSON.parse(message.payload);
+        }
+        catch (err) {
+          payload.text = "undefined payload";
+        }
+        if (payload.text === string.getStarted) {
+            bot.reply(message,string.testQuickreplyMenu);
+        }
     })
 }
