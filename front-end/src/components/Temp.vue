@@ -1,24 +1,8 @@
 <template>
-    <div class="Questions">
-        <v-layout v-if="showQuestionCard">
-            <question @answer="updateAnswer" :questionData="question"></question>
-            <!-- h1 v-else>The test is now complete click here to get your pin to talk to our DR. Bot below are your scores and personality result have a nice day</h1-->
-        </v-layout>
-        <v-layout v-else>
-            <v-flex xs12 sm6 offset-sm3>
-                <v-card class="testComplete">
-                    <v-card-title primary-title>
-                        <h1 class="headline">The test is now complete click show result to see your personality</h1>
-                    </v-card-title>
-                    <div class="optionContainer">
-                        <v-btn @click.native="show = !show">Show Result</v-btn>
-                        <v-btn >Talk to the bot</v-btn>
-                    </div>
-                <v-card-text v-show="show">
-                    <h1>I'm a thing. But</h1>
-                </v-card-text>
-                </v-card>
-            </v-flex>
+    <div class="Questions"> 
+        <v-layout>
+            <question v-if="showQuestionCard" @answer="updateAnswer" :questionData="question"></question>
+            <h1 v-else>Survey is now complete click here to get your pin to talk to our DR. Bot below are your scores and personality result have a nice day</h1>
         </v-layout>
     </div>
 </template>
@@ -30,7 +14,6 @@
         name: 'Questions',
         data() {
             return {
-                show: false,
                 // questions: ['1.Do you often long for excitement?',
                 //     '2.Do you often need understanding friends to cheer you up?',
                 //     '3.Are you usually carefree?',
@@ -93,34 +76,34 @@
                         question: 'Do you often long for excitement?',
                         index: '0'
                     },
-                    // {
-                    //     question: 'Do you often need understanding friends to cheer you up?',
-                    //     index: '1'
-                    // },
-                    // {
-                    //     question: 'Are you usually carefree?',
-                    //     index: '2'
-                    // },
-                    // {
-                    //     question: 'Do you find it very hard to take no for an answer?',
-                    //     index: '3'
-                    // },
-                    // {
-                    //     question: 'Do you stop and think things over before doing anything?',
-                    //     index: '4'
-                    // },
-                    // {
-                    //     question: 'If you say you will do something do you always keep your promise, no matter how inconvenient it might be to do so?',
-                    //     index: '5'
-                    // },
-                    // {
-                    //     question: 'Do your moods go up and down?',
-                    //     index: '6'
-                    // },
-                    // {
-                    //     question: 'Do you generally do and say things quickly without stopping to think?',
-                    //     index: '7'
-                    // },
+                    {
+                        question: 'Do you often need understanding friends to cheer you up?',
+                        index: '1'
+                    },
+                    {
+                        question: 'Are you usually carefree?',
+                        index: '2'
+                    },
+                    {
+                        question: 'Do you find it very hard to take no for an answer?',
+                        index: '3'
+                    },
+                    {
+                        question: 'Do you stop and think things over before doing anything?',
+                        index: '4'
+                    },
+                    {
+                        question: 'If you say you will do something do you always keep your promise, no matter how inconvenient it might be to do so?',
+                        index: '5'
+                    },
+                    {
+                        question: 'Do your moods go up and down?',
+                        index: '6'
+                    },
+                    {
+                        question: 'Do you generally do and say things quickly without stopping to think?',
+                        index: '7'
+                    },
                     // {
                     //     question: 'Do you ever feel just miserable for no good reason?',
                     //     index: '8'
@@ -439,13 +422,16 @@
             'question': Question
         }
     }
+    
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-    .testComplete {
-        min-width: 350px;
-        margin-top: 30%;
-        background-color: #aeeaea;
-    }
+#bg {
+    z-index: -3;
+    background-image: url('../assets/blur-vincent.jpeg');
+    background-position: center;
+    height: 500px;
+    width: 500px;
+}
 </style>
