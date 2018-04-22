@@ -12,7 +12,7 @@ module.exports = function (controller, bot, apiai) {
         if (payload.text === string.getStarted) {
             bot.reply(message,string.testQuickreplyMenu);
         } else if(payload.text === string.start_over){
-            axios.delete("https://api.dialogflow.com/v1/contexts?sessionId=" + apiai.sessionId, {
+            axios.delete("https://api.dialogflow.com/v1/contexts?sessionId=" + User[message.user], {
                 headers: {
                     authorization: 'Bearer '+env.clientAccessToken
                 }

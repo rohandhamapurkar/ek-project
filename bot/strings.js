@@ -1,5 +1,6 @@
 module.exports = {
     getStartedSetup: '{"text":"GET_STARTED"}',
+    start_over: 'start_over',
     testQuickreply : {
         "text": "",
         "quick_replies":[

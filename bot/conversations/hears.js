@@ -11,6 +11,7 @@ module.exports = function (controller, bot, apiai) {
         }
     });
     apiai.all(function (message, resp, bot) {
+        User[message.user] = resp.result.sessionId;
         console.log(resp.result.action);
         //bot.reply(message, resp.result.fulfillment.speech);
     })
