@@ -4,7 +4,7 @@ const apiaibotkit = require('api-ai-botkit');
 const string = require('./strings');
 const axios = require('axios');
 const apiai = apiaibotkit("216dd6479acc4c63a223fc33b034eefb");
-let User = {}
+var User = {}
 
 require("./conversations/postback")(controller,bot,apiai,User);
 require("./conversations/hears")(controller,bot,apiai,User);
