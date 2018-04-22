@@ -60,12 +60,11 @@ module.exports = function(controller,bot,apiai){
     }).action('family_extrovert_tell_something',function (message, resp, bot) {
         bot.startConversation(message, function (err, convo) {
             convo.ask(resp.result.fulfillment.speech, function (response, convo) {
-                console.log("&^&&^&^&^&^&^&^&^&^&^&"+JSON.stringify(response))
                 let processResp = Object.assign({},response);
                 let testText = processResp.text; //watson
-                processResp.text = 'family_extrovert_last_time';
+                processResp.text = 'trigger_family_extrovert_last_time';
                 console.log(JSON.stringify(processResp));
-                apiai.process({user:response.user,channel:response.channel,page:response.page,text:'family_extrovert_last_time'},bot);
+                apiai.process(processResp,bot);
             });
         });
     }).action('family_extrovert_last_time',function (message, resp, bot) {
