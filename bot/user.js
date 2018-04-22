@@ -6,6 +6,7 @@ const axios = require('axios');
 const apiai = apiaibotkit("216dd6479acc4c63a223fc33b034eefb");
 let a = false;
 controller.hears('.*','message_received',function(bot,message){
+    console.log(message);
     if (message.type === 'message_received') {
         if(message.hasOwnProperty('quick_reply')){
             message.text = message.quick_reply.payload;
