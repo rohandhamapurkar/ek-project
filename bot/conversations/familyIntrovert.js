@@ -6,10 +6,12 @@ module.exports = function(controller,bot,apiai){
         template.quick_replies.push({
             "content_type":"text",
             "title":"Joint family",
+            "payload":"Joint family"
         })
         template.quick_replies.push({
             "content_type":"text",
             "title":"Small family",
+            "payload":"Small family"
         })
         bot.reply(message,template);
         template.quick_replies = [];
@@ -19,30 +21,37 @@ module.exports = function(controller,bot,apiai){
         template.quick_replies.push({
             "content_type":"text",
             "title":"Parents",
+            "payload":"Parents",
         })
         template.quick_replies.push({
             "content_type":"text",
             "title":"Cousins",
+            "payload":"Cousins",
         })
         template.quick_replies.push({
             "content_type":"text",
             "title":"Siblings",
+            "payload":"Siblings",
         })
         template.quick_replies.push({
             "content_type":"text",
             "title":"Aunt",
+            "payload":"Aunt",
         })
         template.quick_replies.push({
             "content_type":"text",
             "title":"Uncle",
+            "payload":"Uncle",
         })
         template.quick_replies.push({
             "content_type":"text",
             "title":"GrandParents",
+            "payload":"GrandParents",
         })
         template.quick_replies.push({
             "content_type":"text",
             "title":"None",
+            "payload":"None",
         })
         bot.reply(message,template);
         template.quick_replies = [];
