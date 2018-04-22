@@ -11,13 +11,8 @@ controller.hears('.*','message_received',function(bot,message){
 });
 apiai.all(function (message, resp, bot) {
     console.log(message);
-    console.log(resp);
-    bot.reply(message, resp.result.fulfillment.speech);
-    if(!a){
-        message.text = "family_introvert"
-        apiai.process(message,bot);
-        a = true;
-    }
+    console.log(resp.result.action);
+    //bot.reply(message, resp.result.fulfillment.speech);
 })
 require("./conversations/familyIntrovert")(controller,bot,apiai);
 
