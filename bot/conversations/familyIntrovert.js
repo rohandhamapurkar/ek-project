@@ -2,6 +2,8 @@ const string = require('../strings')
 module.exports = function(controller,bot,apiai){
     apiai.action('family_introvert',function (message, resp, bot) {
         let template = string.testQuickreply;
+        template.quick_replies = [];
+        template.text = "";
         template.text = resp.result.fulfillment.speech;
         template.quick_replies.push({
             "content_type":"text",
@@ -14,10 +16,10 @@ module.exports = function(controller,bot,apiai){
             "payload":"Small family"
         })
         bot.reply(message,template);
-        template.quick_replies = [];
-        template.text = "";
     }).action('family_1',function (message, resp, bot) {
         let template = string.testQuickreply;
+        template.quick_replies = [];
+        template.text = "";
         template.text = resp.result.fulfillment.speech;
         template.quick_replies.push({
             "content_type":"text",
@@ -55,10 +57,10 @@ module.exports = function(controller,bot,apiai){
             "payload":"None",
         })
         bot.reply(message,template);
-        template.quick_replies = [];
-        template.text = "";
     }).action('closest_family',function (message, resp, bot) {
         let template = string.testQuickreply;
+        template.quick_replies = [];
+        template.text = "";
         template.quick_replies.push({
             "content_type":"text",
             "title":"Yes",
@@ -70,12 +72,12 @@ module.exports = function(controller,bot,apiai){
             "payload":"No",
         })
         bot.reply(message,template);
-        template.quick_replies = [];
-        template.text = "";
     }).action('closest_family_none',function (message, resp, bot) {
         bot.reply(message,resp.result.fulfillment.speech);
     }).action('regular_yes',function (message, resp, bot) {
         let template = string.testQuickreply;
+        template.quick_replies = [];
+        template.text = "";
         template.quick_replies.push({
             "content_type":"text",
             "title":"Somedays Ago",
@@ -87,13 +89,13 @@ module.exports = function(controller,bot,apiai){
             "payload":"Months ago",
         })
         bot.reply(message,template);
-        template.quick_replies = [];
-        template.text = "";
     }).action('regular_no',function (message, resp, bot) {
         message.text = "family_reasons"
         apiai.process(message,bot);
     }).action('time_days',function (message, resp, bot) {
         let template = string.testQuickreply;
+        template.quick_replies = [];
+        template.text = "";
         template.quick_replies.push({
             "content_type":"text",
             "title":"Relieved",
@@ -110,8 +112,6 @@ module.exports = function(controller,bot,apiai){
             "payload":"Content",
         })
         bot.reply(message,template);
-        template.quick_replies = [];
-        template.text = "";
     }).action('time_months',function (message, resp, bot) {
         message.text = "family_reasons"
         apiai.process(message,bot);
@@ -120,6 +120,8 @@ module.exports = function(controller,bot,apiai){
         apiai.process(message,bot);
     }).action('family_reasons',function (message, resp, bot) {
         let template = string.testQuickreply;
+        template.quick_replies = [];
+        template.text = "";
         template.quick_replies.push({
             "content_type":"text",
             "title":"Time",
@@ -136,10 +138,10 @@ module.exports = function(controller,bot,apiai){
             "payload":"wrong",
         })
         bot.reply(message,template);
-        template.quick_replies = [];
-        template.text = "";
     }).action('share_something',function (message, resp, bot) {
         let template = string.testQuickreply;
+        template.quick_replies = [];
+        template.text = "";
         template.quick_replies.push({
             "content_type":"text",
             "title":"Yes",
@@ -151,8 +153,6 @@ module.exports = function(controller,bot,apiai){
             "payload":"share_no",
         })
         bot.reply(message,template);
-        template.quick_replies = [];
-        template.text = "";
     }).action('reason_time',function (message, resp, bot) {
         bot.reply(message,resp.result.fulfillment.speech);
     }).action('reason_others',function (message, resp, bot) {
