@@ -4,7 +4,7 @@ module.exports = function (controller, bot, apiai) {
         console.log("*&*&*&*&*&*&*&*&*&*&*&",message);
         var payload = {};
         try {
-          payload = JSON.parse(message.payload);
+          payload = JSON.parse(message.postback.payload);
         }
         catch (err) {
           payload.text = "undefined payload";
