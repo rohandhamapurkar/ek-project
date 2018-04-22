@@ -1,5 +1,6 @@
 var bot = require('./init-user').bot;
 var controller = require('./init-user').controller;
+const apiaibotkit = require('api-ai-botkit');
 const apiai = apiaibotkit("216dd6479acc4c63a223fc33b034eefb");
 
 controller.hears('.*','message_received',function(bot,message){
