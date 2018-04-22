@@ -56,16 +56,57 @@ module.exports = function(controller,bot,apiai){
         bot.reply(message,template);
         template.quick_replies = [];
     }).action('closest_family',function (message, resp, bot) {
-        bot.reply(message,resp.result.fulfillment.speech);
+        let template = string.testQuickreply;
+        template.quick_replies.push({
+            "content_type":"text",
+            "title":"Yes",
+            "payload":"Yes",
+        })
+        template.quick_replies.push({
+            "content_type":"text",
+            "title":"No",
+            "payload":"No",
+        })
+        bot.reply(message,template);
+        template.quick_replies = [];
     }).action('closest_family_none',function (message, resp, bot) {
         bot.reply(message,resp.result.fulfillment.speech);
     }).action('regular_yes',function (message, resp, bot) {
-        bot.reply(message,resp.result.fulfillment.speech);
+        let template = string.testQuickreply;
+        template.quick_replies.push({
+            "content_type":"text",
+            "title":"Somedays Ago",
+            "payload":"Somedays Ago",
+        })
+        template.quick_replies.push({
+            "content_type":"text",
+            "title":"Months ago",
+            "payload":"Months ago",
+        })
+        bot.reply(message,template);
+        template.quick_replies = [];
     }).action('regular_no',function (message, resp, bot) {
         message.text = "family_reasons"
         apiai.process(message,bot);
     }).action('time_days',function (message, resp, bot) {
-        bot.reply(message,resp.result.fulfillment.speech);
+        let template = string.testQuickreply;
+        template.quick_replies.push({
+            "content_type":"text",
+            "title":"Relieved",
+            "payload":"Relieved",
+        })
+        template.quick_replies.push({
+            "content_type":"text",
+            "title":"Rejected",
+            "payload":"Rejected",
+        })
+        template.quick_replies.push({
+            "content_type":"text",
+            "title":"Content",
+            "payload":"Content",
+        })
+        bot.reply(message,template);
+        template.quick_replies = [];
     }).action('time_months',function (message, resp, bot) {
         message.text = "family_reasons"
         apiai.process(message,bot);
@@ -73,9 +114,38 @@ module.exports = function(controller,bot,apiai){
         message.text = "share_something"
         apiai.process(message,bot);
     }).action('family_reasons',function (message, resp, bot) {
-        bot.reply(message,resp.result.fulfillment.speech);
+        let template = string.testQuickreply;
+        template.quick_replies.push({
+            "content_type":"text",
+            "title":"Time",
+            "payload":"Time",
+        })
+        template.quick_replies.push({
+            "content_type":"text",
+            "title":"You didnt feel like talking",
+            "payload":"notTalk",
+        })
+        template.quick_replies.push({
+            "content_type":"text",
+            "title":"Something Went Wrong",
+            "payload":"wrong",
+        })
+        bot.reply(message,template);
+        template.quick_replies = [];
     }).action('share_something',function (message, resp, bot) {
-        bot.reply(message,resp.result.fulfillment.speech);
+        let template = string.testQuickreply;
+        template.quick_replies.push({
+            "content_type":"text",
+            "title":"Yes",
+            "payload":"share_yes",
+        })
+        template.quick_replies.push({
+            "content_type":"text",
+            "title":"No",
+            "payload":"share_no",
+        })
+        bot.reply(message,template);
+        template.quick_replies = [];
     }).action('reason_time',function (message, resp, bot) {
         bot.reply(message,resp.result.fulfillment.speech);
     }).action('reason_others',function (message, resp, bot) {
