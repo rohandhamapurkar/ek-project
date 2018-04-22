@@ -150,12 +150,12 @@ module.exports = function(controller,bot,apiai){
         template.quick_replies.push({
             "content_type":"text",
             "title":"Yes",
-            "payload":"share_yes",
+            "payload":"Yes",
         })
         template.quick_replies.push({
             "content_type":"text",
             "title":"No",
-            "payload":"share_no",
+            "payload":"No",
         })
         bot.reply(message,template);
     }).action('reason_time',function (message, resp, bot) {
