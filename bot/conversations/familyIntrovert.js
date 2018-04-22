@@ -6,17 +6,46 @@ module.exports = function(controller,bot,apiai){
         template.quick_replies.push({
             "content_type":"text",
             "title":"Joint family",
-            "payload":"joint",
         })
         template.quick_replies.push({
             "content_type":"text",
             "title":"Small family",
-            "payload":"small",
         })
         bot.reply(message,template);
         template.quick_replies = [];
     }).action('family_1',function (message, resp, bot) {
-        bot.reply(message,resp.result.fulfillment.speech);
+        let template = string.testQuickreply;
+        template.text = resp.result.fulfillment.speech;
+        template.quick_replies.push({
+            "content_type":"text",
+            "title":"Parents",
+        })
+        template.quick_replies.push({
+            "content_type":"text",
+            "title":"Cousins",
+        })
+        template.quick_replies.push({
+            "content_type":"text",
+            "title":"Siblings",
+        })
+        template.quick_replies.push({
+            "content_type":"text",
+            "title":"Aunt",
+        })
+        template.quick_replies.push({
+            "content_type":"text",
+            "title":"Uncle",
+        })
+        template.quick_replies.push({
+            "content_type":"text",
+            "title":"GrandParents",
+        })
+        template.quick_replies.push({
+            "content_type":"text",
+            "title":"None",
+        })
+        bot.reply(message,template);
+        template.quick_replies = [];
     }).action('closest_family',function (message, resp, bot) {
         bot.reply(message,resp.result.fulfillment.speech);
     }).action('closest_family_none',function (message, resp, bot) {
