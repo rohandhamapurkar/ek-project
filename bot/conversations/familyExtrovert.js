@@ -60,7 +60,7 @@ module.exports = function(controller,bot,apiai){
     }).action('family_extrovert_tell_something',function (message, resp, bot) {
         bot.startConversation(message, function (err, convo) {
             convo.ask(resp.result.fulfillment.speech, function (response, convo) {
-                console.log("&^&&^&^&^&^&^&^&^&^&^&"+response)
+                console.log("&^&&^&^&^&^&^&^&^&^&^&"+JSON.stringify(response))
                 let testText = response.text;
                 response.text = 'family_extrovert_last_time';
                 console.log(response);
