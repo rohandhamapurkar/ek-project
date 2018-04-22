@@ -21,4 +21,5 @@ apiai.all(function (message, resp, bot) {
     //bot.reply(message, resp.result.fulfillment.speech);
 })
 require("./conversations/familyIntrovert")(controller,bot,apiai);
+require("./conversations/postback")(controller,bot,apiai);
 
