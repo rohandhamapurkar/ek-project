@@ -19,7 +19,7 @@ apiai.all(function (message, resp, bot) {
     console.log(resp.result.action);
     bot.reply(message,string.testQuickreply);
     if(!a){
-        message.text = "family_introvert";
+        message.text = "family_extrovert";
         apiai.process(message,bot);
         a = true;
     }
