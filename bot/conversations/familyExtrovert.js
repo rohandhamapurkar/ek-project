@@ -58,7 +58,13 @@ module.exports = function(controller,bot,apiai){
         })
         bot.reply(message,template);
     }).action('family_extrovert_tell_something',function (message, resp, bot) {
-        bot.reply(message,resp.result.fulfillment.speech);
+        bot.startConversation(message, function (err, convo) {
+            convo.ask(resp.result.fulfillment.speech, function (response, convo) {
+                let testText = response.text;
+                response.text = 'family_extrovert_last_time';
+                apiai.process(response,bot);
+            });
+        });
     }).action('family_extrovert_last_time',function (message, resp, bot) {
         let template = Object.assign({},string.testQuickreply);
         template.quick_replies = [];

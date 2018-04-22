@@ -4,27 +4,10 @@ const apiaibotkit = require('api-ai-botkit');
 const string = require('./strings');
 const axios = require('axios');
 const apiai = apiaibotkit("216dd6479acc4c63a223fc33b034eefb");
-let a = false;
+
+
 require("./conversations/postback")(controller,bot,apiai);
-controller.hears('.*','message_received',function(bot,message){
-    if (message.type === 'message_received') {
-        if(message.quick_reply != undefined){
-            message.text = message.quick_reply.payload;
-            apiai.process(message, bot);
-        } else {
-            apiai.process(message, bot);
-        }
-    }
-});
-apiai.all(function (message, resp, bot) {
-    console.log(resp.result.action);
-    //bot.reply(message, resp.result.fulfillment.speech);
-})
-apiai.action('smalltalk.greetings.hello', function (message, resp, bot) {
-    bot.reply(message,resp.result.fulfillment.speech,function(err){
-        bot.reply(message,string.testQuickreplyMenu);
-    });  
-})
+require("./conversations/hears")(controller,bot,apiai);
 require("./conversations/familyIntrovert")(controller,bot,apiai);
 require("./conversations/familyExtrovert")(controller,bot,apiai);
 
