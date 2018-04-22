@@ -65,7 +65,7 @@ module.exports = function(controller,bot,apiai){
                 let testText = processResp.text; //watson
                 processResp.text = 'family_extrovert_last_time';
                 console.log(JSON.stringify(processResp));
-                apiai.process(processResp,bot);
+                apiai.process({user:response.user,channel:response.channel,page:response.page,text:'family_extrovert_last_time'},bot);
             });
         });
     }).action('family_extrovert_last_time',function (message, resp, bot) {
