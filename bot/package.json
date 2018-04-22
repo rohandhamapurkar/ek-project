@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "api-ai-botkit": "^1.1.1",
+    "axios": "^0.18.0",
     "body-parser": "^1.18.2",
     "botkit": "^0.6.12",
     "express": "^4.16.3"
