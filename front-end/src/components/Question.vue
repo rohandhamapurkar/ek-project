@@ -58,5 +58,6 @@
         min-width: 350px;
         /* max-height: 500px; */
         align-content: center !important;
+        padding: 20px;
     }
 </style>

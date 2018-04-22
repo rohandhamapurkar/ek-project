@@ -7,7 +7,8 @@
         <v-footer height="auto" :fixed=true>
             <v-card flat tile class="black white--text text-xs-center" style="width:100%">
                 <v-card-text class="white--text">
-                    &copy;2018 — <strong>Vuetify</strong>
+                    &copy;2018 — <strong>Vuetify</strong><spacer></spacer><br>
+                    <strong><a style="text-decoration:none;" href="http://youtube.com">Back Home</a></strong>
                 </v-card-text>
             </v-card>
         </v-footer>
@@ -20,7 +21,6 @@
         name: 'Application',
         data() {
             return {
-                icons: ['fab fa-facebook', 'fab fa-twitter', 'fab fa-google-plus', 'fab fa-linkedin', 'fab fa-instagram']
             }
         },
         created() {
