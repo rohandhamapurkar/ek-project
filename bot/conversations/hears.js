@@ -11,7 +11,7 @@ module.exports = function (controller, bot, apiai,User) {
         }
     });
     apiai.all(function (message, resp, bot) {
-        if(User[message.user].hasOwnProperty('sessionId')){
+        if(User.hasOwnProperty(message.user)){
             User[message.user] = {}
             User[message.user].sessionId = resp.result.sessionId;
         }
