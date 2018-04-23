@@ -1,5 +1,5 @@
 const string = require('../strings')
-module.exports = function(controller,bot,apiai){
+module.exports = function(controller,bot,apiai,User,tone_analyzer){
     apiai.action('family_introvert',function (message, resp, bot) {
         let template = Object.assign({},string.testQuickreply);
         template.quick_replies = [];
@@ -164,7 +164,44 @@ module.exports = function(controller,bot,apiai){
         message.text = "share_something"
         apiai.process(message,bot);
     }).action('share_yes',function (message, resp, bot) {
-        bot.reply(message,resp.result.fulfillment.speech);
+        bot.startConversation(message, function (err, convo) {
+            convo.ask(resp.result.fulfillment.speech, function (response, convo) {
+                tone_analyzer.tone({
+                    'tone_input': { 'text': response.text },
+                      'content_type': 'application/json'
+                    }, function(error, response) {
+                    if (error){
+                        console.log('error:', error);
+                        convo.stop();
+                    }
+                    else{
+                        let data = {};
+                        for(i of response.document_tone.tones){
+                            if(i.tone_id == 'sadness'){
+                                data.sad = i.score;
+                            }
+                            if(i.tone_id == 'joy'){
+                                data.joy = i.score;
+                            }
+                        }
+                        if(data.hasOwnProperty('sad') && data.hasOwnProperty('joy')){
+                            if(data.sad>data.joy){
+                                User[message.user]["intent"] = 'Family';
+                            }
+                        } else if(data.hasOwnProperty('sad')){
+                            User[message.user]["intent"] = 'Family';
+                        }
+                        let array = ['studies_flow'];
+                        message.text = array[Math.floor(Math.random() * array.length)]
+                        apiai.process(message,bot);
+                        convo.stop();
+                    }
+
+                    }
+                  );
+                convo.stop();
+            });
+        });
     }).action('share_no',function (message, resp, bot) {
         bot.reply(message,resp.result.fulfillment.speech);
     })
