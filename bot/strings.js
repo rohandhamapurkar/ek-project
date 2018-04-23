@@ -1,23 +1,40 @@
 module.exports = {
     getStartedSetup: '{"text":"GET_STARTED"}',
+    getStarted: 'GET_STARTED',
     start_over: 'start_over',
     testQuickreply : {
         "text": "",
         "quick_replies":[
         ]
     },
-    testQuickreplyMenu : {
+    introvertQuickreplyMenu : {
         "text": "Choose one:",
         "quick_replies":[
             {
                 "content_type":"text",
-                "title":"Introvert Family",
+                "title":"Family",
                 "payload":"family_introvert"
             },
             {
                 "content_type":"text",
-                "title":"Extrovert Family",
+                "title":"Studies",
+                "payload":"studies_flow"
+            }
+
+        ]
+    },
+    extrovertQuickreplyMenu : {
+        "text": "Choose one:",
+        "quick_replies":[
+            {
+                "content_type":"text",
+                "title":"Family",
                 "payload":"family_extrovert"
+            },
+            {
+                "content_type":"text",
+                "title":"Studies",
+                "payload":"studies_flow"
             }
 
         ]
@@ -28,38 +45,9 @@ module.exports = {
             "composer_input_disabled": false,
             "call_to_actions": [
                 {
-                    "title": "Chat Options",
-                    "type": "nested",
-                    "call_to_actions": [
-                        {
-                            "title": "Start Over",
-                            "type": "postback",
-                            "payload": '{"text":"start_over"}'
-                        }
-                        // ,
-                        // {
-                        //     "type":"web_url",
-                        //     "title":"Test Webview",
-                        //     "url":"https://orderstack.xyz/welcome/",
-                        //     "webview_height_ratio":"full"
-                        // }
-                    ]
-                },
-              {
-               "title": "Profile Options",
-                    "type": "nested",
-                    "call_to_actions": [
-                        {
-                            "title": 'Change Address',
-                            "type": "postback",
-                            "payload": '{"text":"change_address_persistance"}'
-                        },
-                        {
-                            "title": 'Show Address',
-                            "type": "postback",
-                            "payload": '{"text":"show_address"}'
-                        }
-                    ]
+                    "title": "Start Over",
+                    "type": "postback",
+                    "payload": '{"text":"start_over"}'
                 }
             ]
         },

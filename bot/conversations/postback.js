@@ -10,7 +10,23 @@ module.exports = function (controller, bot, apiai,User) {
           payload.text = "undefined payload";
         }
         if (payload.text === string.getStarted) {
-            bot.reply(message,string.testQuickreplyMenu);
+            bot.startConversation(message, function (err, convo) {
+                convo.ask("Please enter your token.", function (response, convo) {
+                    if(Number(response.text) != NaN){
+                        let a = Number(response.text);
+                        convo.stop();
+                        if(a<=500){
+                            User[message.user].type = 'introvert';
+                            bot.reply(message,string.introvertQuickreplyMenu);
+                        } else {
+                            User[message.user].type = 'extrovert';
+                            bot.reply(message,string.extrovertQuickreplyMenu);
+                        }
+                    } else {
+                        convo.repeat();
+                    }
+                })
+            })
         } else if(payload.text === string.start_over){
             if(User.hasOwnProperty(message.user)){
                 axios.delete("https://api.dialogflow.com/v2/contexts?sessionId=" + User[message.user]["sessionId"], {
@@ -24,10 +40,24 @@ module.exports = function (controller, bot, apiai,User) {
                     console.error("NLP session delete error 1 getVendorDetails", error);
                     });
             }
-            bot.reply(message,"Started Over!",function(err){
-                bot.reply(message,string.testQuickreplyMenu);
-            });
-            
+            bot.startConversation(message, function (err, convo) {
+                convo.ask("Please enter your token.", function (response, convo) {
+                    if(Number(response.text) != NaN){
+                        let a = Number(response.text);
+                        convo.stop();
+                        if(a<=500){
+                            User[message.user].type = 'introvert';
+                            bot.reply(message,string.introvertQuickreplyMenu);
+                        } else {
+                            User[message.user].type = 'extrovert';
+                            bot.reply(message,string.extrovertQuickreplyMenu);
+                        }
+                    } else {
+                        convo.repeat();
+                    }
+                })
+            })
+
         }
     })
 }

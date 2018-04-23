@@ -11,17 +11,33 @@ module.exports = function (controller, bot, apiai,User) {
         }
     });
     apiai.all(function (message, resp, bot) {
-        if(User.hasOwnProperty(message.user)){
+        if(!User.hasOwnProperty(message.user)){
             User[message.user] = {}
-            User[message.user].sessionId = resp.result.sessionId;
+            User[message.user]["sessionId"] = resp.result.sessionId;
         }
         User[message.user].sessionId = resp.result.sessionId;
-        console.log(resp.result.action);
+        console.log(resp.result);
         //bot.reply(message, resp.result.fulfillment.speech);
     })
     apiai.action('smalltalk.greetings.hello', function (message, resp, bot) {
         bot.reply(message,resp.result.fulfillment.speech,function(err){
-            bot.reply(message,string.testQuickreplyMenu);
-        });  
+            bot.startConversation(message, function (err, convo) {
+                convo.ask("Please enter your token.", function (response, convo) {
+                    if(Number(response.text) != NaN){
+                        let a = Number(response.text);
+                        convo.stop();
+                        if(a<=500){
+                            User[message.user].type = 'introvert';
+                            bot.reply(message,string.introvertQuickreplyMenu);
+                        } else {
+                            User[message.user].type = 'extrovert';
+                            bot.reply(message,string.extrovertQuickreplyMenu);
+                        }
+                    } else {
+                        convo.repeat();
+                    }
+                })
+            })
+        });
     })
 }
