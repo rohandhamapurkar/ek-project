@@ -135,7 +135,7 @@ module.exports = function(controller,bot,apiai,User,tone_analyzer){
                             User[message.user]["intent"] = 'Family';
                         }
                         let array = ['studies_flow'];
-                        let message.text = array[Math.floor(Math.random() * array.length)]
+                        message.text = array[Math.floor(Math.random() * array.length)]
                         apiai.process(message,bot);
                         convo.stop();
                     }

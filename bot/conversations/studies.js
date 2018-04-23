@@ -135,7 +135,7 @@ module.exports = function(controller,bot,apiai,User,tone_analyzer){
                             User[message.user]["intent"] = 'Studies';
                         }
                         let array = ['family'];
-                        let message.text = array[Math.floor(Math.random() * array.length)]+"_"+User[message.user].type
+                        message.text = array[Math.floor(Math.random() * array.length)]+"_"+User[message.user].type
                         apiai.process(message,bot);
                         convo.stop();
                     }
@@ -212,7 +212,7 @@ module.exports = function(controller,bot,apiai,User,tone_analyzer){
                             User[message.user]["intent"] = 'Studies';
                         }
                         let array = ['family'];
-                        let message.text = array[Math.floor(Math.random() * array.length)]+"_"+User[message.user].type
+                        message.text = array[Math.floor(Math.random() * array.length)]+"_"+User[message.user].type
                         apiai.process(message,bot);
                         convo.stop();
                     }
@@ -255,7 +255,7 @@ module.exports = function(controller,bot,apiai,User,tone_analyzer){
                             User[message.user]["intent"] = 'Studies';
                         }
                         let array = ['family'];
-                        let message.text = array[Math.floor(Math.random() * array.length)]+"_"+User[message.user].type
+                        message.text = array[Math.floor(Math.random() * array.length)]+"_"+User[message.user].type
                         apiai.process(message,bot);
                         convo.stop();
                     }
@@ -294,7 +294,7 @@ module.exports = function(controller,bot,apiai,User,tone_analyzer){
                             User[message.user]["intent"] = 'Studies';
                         }
                         let array = ['family'];
-                        let message.text = array[Math.floor(Math.random() * array.length)]+"_"+User[message.user].type
+                        message.text = array[Math.floor(Math.random() * array.length)]+"_"+User[message.user].type
                         apiai.process(message,bot);
                         convo.stop();
                     }
