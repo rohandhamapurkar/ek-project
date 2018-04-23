@@ -39,5 +39,5 @@ function sendMail() {
 }
 
 function linkTest() {
-    window.open("https://www.youtube.com","_self");
+    window.open("http://localhost:8080/#/questions","_blank");
 }

@@ -1,5 +1,5 @@
 const string = require('../strings')
-module.exports = function(controller,bot,apiai){
+module.exports = function(controller,bot,apiai,User){
     apiai.action('family_introvert',function (message, resp, bot) {
         let template = Object.assign({},string.testQuickreply);
         template.quick_replies = [];

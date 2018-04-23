@@ -8,7 +8,8 @@ var User = {}
 
 require("./conversations/postback")(controller,bot,apiai,User);
 require("./conversations/hears")(controller,bot,apiai,User);
-require("./conversations/familyIntrovert")(controller,bot,apiai);
-require("./conversations/familyExtrovert")(controller,bot,apiai);
+require("./conversations/familyIntrovert")(controller,bot,apiai,User);
+require("./conversations/familyExtrovert")(controller,bot,apiai,User);
+require("./conversations/studies")(controller,bot,apiai,User)
 
 
