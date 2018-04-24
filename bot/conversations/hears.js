@@ -20,6 +20,10 @@ module.exports = function (controller, bot, apiai,User) {
         //bot.reply(message, resp.result.fulfillment.speech);
     })
     apiai.action('smalltalk.greetings.hello', function (message, resp, bot) {
+        if(!User.hasOwnProperty(message.user)){
+            User[message.user] = {}
+            User[message.user]["sessionId"] = resp.result.sessionId;
+        }
         bot.reply(message,resp.result.fulfillment.speech,function(err){
             bot.startConversation(message, function (err, convo) {
                 convo.ask("Please enter your token.", function (response, convo) {
