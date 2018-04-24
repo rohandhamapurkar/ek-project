@@ -190,10 +190,10 @@ module.exports = function(controller,bot,apiai,User,tone_analyzer){
                         }
                         if(data.hasOwnProperty('sad') && data.hasOwnProperty('joy')){
                             if(data.sad>data.joy){
-                                User[message.user]["intent"].push('Family');
+                                User[message.user]["intent"].push({reason:"Family",score:data.sad*100});
                             }
                         } else if(data.hasOwnProperty('sad')){
-                            User[message.user]["intent"].push('Family');
+                            User[message.user]["intent"].push({reason:"Family",score:data.sad*100});
                         }
                         convo.stop();
                         if(User[message.user]["array"].length>0){

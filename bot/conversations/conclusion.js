@@ -1,9 +1,9 @@
 module.exports = function(controller,bot,User){
     controller.on('conclusion',function(bot,message){
         if(User[message.user]["intent"].length != 0){
-            let t = "Your reasons for depression may be "
+            let t = "Your reasons for depression may be:"
             for(i of User[message.user]["intent"]){
-                t += " "+i+", ";
+                t += "\n"+i.reason + ": "+i.score
             }
             bot.reply(message,t);
         } else {
