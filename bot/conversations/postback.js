@@ -48,8 +48,6 @@ module.exports = function (controller, bot, apiai,User) {
                     });
             }
             User[message.user] = {}
-            User[message.user]["sessionId"] = resp.result.sessionId;
-
             bot.startConversation(message, function (err, convo) {
                 convo.ask("Please enter your token.", function (response, convo) {
                     if(Number.isInteger(Number(response.text))){
