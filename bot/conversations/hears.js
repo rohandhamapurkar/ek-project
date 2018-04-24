@@ -29,11 +29,13 @@ module.exports = function (controller, bot, apiai,User) {
                         let a = Number(response.text);
                         convo.stop();
                         if(a<=500){
-                            User[message.user][array] = ['family_introvert','studies_flow'];
+                            User[message.user]["array"] = ['family_introvert','studies_flow'];
+                            User[message.user]['intent'] = [];
                             User[message.user].type = 'introvert';
                             bot.reply(message,string.introvertQuickreplyMenu);
                         } else {
-                            User[message.user][array] = ['family_extrovert','studies_flow'];
+                            User[message.user]["array"] = ['family_extrovert','studies_flow'];
+                            User[message.user]['intent'] = [];
                             User[message.user].type = 'extrovert';
                             bot.reply(message,string.extrovertQuickreplyMenu);
                         }

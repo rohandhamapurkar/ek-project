@@ -1,7 +1,7 @@
 const string = require('../strings')
 module.exports = function(controller,bot,apiai,User,tone_analyzer){
     apiai.action('studies_flow',function (message, resp, bot) {
-        let index = User[message.user][array].indexOf('studies_flow');
+        let index = User[message.user]["array"].indexOf('studies_flow');
         if (index > -1) {
             arr.splice(index, 1);
         }
@@ -133,14 +133,14 @@ module.exports = function(controller,bot,apiai,User,tone_analyzer){
                         }
                         if(data.hasOwnProperty('sad') && data.hasOwnProperty('joy')){
                             if(data.sad>data.joy){
-                                User[message.user]["intent"] = 'Studies';
+                                User[message.user]["intent"].push('Studies');
                             }
                         } else if(data.hasOwnProperty('sad')){
-                            User[message.user]["intent"] = 'Studies';
+                            User[message.user]["intent"].push('Studies');
                         }
                         convo.stop();
-                        if(User[message.user][array]>0){
-                            message.text = User[message.user][array][Math.floor(Math.random() * array.length)]
+                        if(User[message.user]["array"]>0){
+                            message.text = User[message.user]["array"][Math.floor(Math.random() * array.length)]
                             apiai.process(message,bot);
                         } else {
                             controller.trigger('conclusion',[bot,message]);
@@ -213,14 +213,14 @@ module.exports = function(controller,bot,apiai,User,tone_analyzer){
                         }
                         if(data.hasOwnProperty('sad') && data.hasOwnProperty('joy')){
                             if(data.sad>data.joy){
-                                User[message.user]["intent"] = 'Studies';
+                                User[message.user]["intent"].push('Studies');
                             }
                         } else if(data.hasOwnProperty('sad')){
-                            User[message.user]["intent"] = 'Studies';
+                            User[message.user]["intent"].push('Studies');
                         }
                         convo.stop();
-                        if(User[message.user][array]>0){
-                            message.text = User[message.user][array][Math.floor(Math.random() * array.length)]
+                        if(User[message.user]["array"]>0){
+                            message.text = User[message.user]["array"][Math.floor(Math.random() * array.length)]
                             apiai.process(message,bot);
                         } else {
                             controller.trigger('conclusion',[bot,message]);
@@ -259,14 +259,14 @@ module.exports = function(controller,bot,apiai,User,tone_analyzer){
                         }
                         if(data.hasOwnProperty('sad') && data.hasOwnProperty('joy')){
                             if(data.sad>data.joy){
-                                User[message.user]["intent"] = 'Studies';
+                                User[message.user]["intent"].push('Studies');
                             }
                         } else if(data.hasOwnProperty('sad')){
-                            User[message.user]["intent"] = 'Studies';
+                            User[message.user]["intent"].push('Studies');
                         }
                         convo.stop();
-                        if(User[message.user][array]>0){
-                            message.text = User[message.user][array][Math.floor(Math.random() * array.length)]
+                        if(User[message.user]["array"]>0){
+                            message.text = User[message.user]["array"][Math.floor(Math.random() * array.length)]
                             apiai.process(message,bot);
                         } else {
                             controller.trigger('conclusion',[bot,message]);
@@ -301,14 +301,14 @@ module.exports = function(controller,bot,apiai,User,tone_analyzer){
                         }
                         if(data.hasOwnProperty('sad') && data.hasOwnProperty('joy')){
                             if(data.sad>data.joy){
-                                User[message.user]["intent"] = 'Studies';
+                                User[message.user]["intent"].push('Studies');
                             }
                         } else if(data.hasOwnProperty('sad')){
-                            User[message.user]["intent"] = 'Studies';
+                            User[message.user]["intent"].push('Studies');
                         }
                         convo.stop();
-                        if(User[message.user][array]>0){
-                            message.text = User[message.user][array][Math.floor(Math.random() * array.length)]
+                        if(User[message.user]["array"]>0){
+                            message.text = User[message.user]["array"][Math.floor(Math.random() * array.length)]
                             apiai.process(message,bot);
                         } else {
                             controller.trigger('conclusion',[bot,message]);

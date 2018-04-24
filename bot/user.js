@@ -17,4 +17,5 @@ require("./conversations/postback")(controller,bot,apiai,User);
 require("./conversations/hears")(controller,bot,apiai,User);
 require("./conversations/familyIntrovert")(controller,bot,apiai,User,tone_analyzer);
 require("./conversations/familyExtrovert")(controller,bot,apiai,User,tone_analyzer);
-require("./conversations/studies")(controller,bot,apiai,User,tone_analyzer)
+require("./conversations/studies")(controller,bot,apiai,User,tone_analyzer);
+require("./conversations/conclusion")(controller,bot,User);
