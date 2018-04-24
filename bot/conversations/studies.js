@@ -139,7 +139,7 @@ module.exports = function(controller,bot,apiai,User,tone_analyzer){
                             User[message.user]["intent"].push('Studies');
                         }
                         convo.stop();
-                        if(User[message.user]["array"]>0){
+                        if(User[message.user]["array"].length>0){
                             message.text = User[message.user]["array"][Math.floor(Math.random() * array.length)]
                             apiai.process(message,bot);
                         } else {
@@ -219,7 +219,7 @@ module.exports = function(controller,bot,apiai,User,tone_analyzer){
                             User[message.user]["intent"].push('Studies');
                         }
                         convo.stop();
-                        if(User[message.user]["array"]>0){
+                        if(User[message.user]["array"].length>0){
                             message.text = User[message.user]["array"][Math.floor(Math.random() * array.length)]
                             apiai.process(message,bot);
                         } else {
@@ -265,7 +265,7 @@ module.exports = function(controller,bot,apiai,User,tone_analyzer){
                             User[message.user]["intent"].push('Studies');
                         }
                         convo.stop();
-                        if(User[message.user]["array"]>0){
+                        if(User[message.user]["array"].length>0){
                             message.text = User[message.user]["array"][Math.floor(Math.random() * array.length)]
                             apiai.process(message,bot);
                         } else {
@@ -307,7 +307,7 @@ module.exports = function(controller,bot,apiai,User,tone_analyzer){
                             User[message.user]["intent"].push('Studies');
                         }
                         convo.stop();
-                        if(User[message.user]["array"]>0){
+                        if(User[message.user]["array"].length>0){
                             message.text = User[message.user]["array"][Math.floor(Math.random() * array.length)]
                             apiai.process(message,bot);
                         } else {
