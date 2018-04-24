@@ -3,7 +3,7 @@ module.exports = function(controller,bot,User){
         if(User[message.user]["intent"].length != 0){
             let t = "Your reasons for depression may be:"
             for(i of User[message.user]["intent"]){
-                t += "\n"+i.reason + ": "+i.score+"%"
+                t += "\n"+i.reason + ": "+i.score.toFixed(2)+"%"
             }
             bot.reply(message,t);
         } else {
