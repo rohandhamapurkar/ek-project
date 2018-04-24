@@ -25,6 +25,7 @@ module.exports = function (controller, bot, apiai,User) {
         bot.reply(message,resp.result.fulfillment.speech,function(err){
             bot.startConversation(message, function (err, convo) {
                 convo.ask("Please enter your token.", function (response, convo) {
+                    console.log(Number.isInteger(response.text));
                     if(Number.isInteger(response.text)){
                         let a = Number(response.text);
                         convo.stop();
