@@ -2,6 +2,10 @@ const string = require('../strings')
 let array = ['studies_flow'];
 module.exports = function(controller,bot,apiai,User,tone_analyzer){
     apiai.action('family_extrovert',function (message, resp, bot) {
+        let index = User[message.user][array].indexOf('family_extrovert');
+        if (index > -1) {
+            arr.splice(index, 1);
+        }
         let template = Object.assign({},string.testQuickreply);
         template.quick_replies = [];
         template.text = "";
@@ -134,10 +138,15 @@ module.exports = function(controller,bot,apiai,User,tone_analyzer){
                         } else if(data.hasOwnProperty('sad')){
                             User[message.user]["intent"] = 'Family';
                         }
-                        let array = ['studies_flow'];
-                        message.text = array[Math.floor(Math.random() * array.length)]
-                        apiai.process(message,bot);
                         convo.stop();
+                        if(User[message.user][array]>0){
+                            message.text = User[message.user][array][Math.floor(Math.random() * array.length)]
+                            apiai.process(message,bot);
+                        } else {
+                            controller.trigger('conclusion',[bot,message]);
+                        }
+
+
                     }
 
                     }

@@ -10,20 +10,25 @@ module.exports = function (controller, bot, apiai,User) {
           payload.text = "undefined payload";
         }
         if (payload.text === string.getStarted) {
+            User[message.user] = {}
+            User[message.user]["sessionId"] = resp.result.sessionId;
             bot.startConversation(message, function (err, convo) {
                 convo.ask("Please enter your token.", function (response, convo) {
-                    if(Number(response.text) != NaN){
+                    if(Number.isInteger(response.text)){
                         let a = Number(response.text);
                         convo.stop();
                         if(a<=500){
+                            User[message.user][array] = ['family_introvert','studies_flow'];
                             User[message.user].type = 'introvert';
                             bot.reply(message,string.introvertQuickreplyMenu);
                         } else {
+                            User[message.user][array] = ['family_extrovert','studies_flow'];
                             User[message.user].type = 'extrovert';
                             bot.reply(message,string.extrovertQuickreplyMenu);
                         }
                     } else {
                         convo.repeat();
+                        convo.next();
                     }
                 })
             })
@@ -40,20 +45,27 @@ module.exports = function (controller, bot, apiai,User) {
                     console.error("NLP session delete error 1 getVendorDetails", error);
                     });
             }
+            User[message.user] = {}
+            User[message.user][array] = ['family','studies_flow'];
+            User[message.user]["sessionId"] = resp.result.sessionId;
+
             bot.startConversation(message, function (err, convo) {
                 convo.ask("Please enter your token.", function (response, convo) {
-                    if(Number(response.text) != NaN){
+                    if(Number.isInteger(response.text)){
                         let a = Number(response.text);
                         convo.stop();
                         if(a<=500){
+                            User[message.user][array] = ['family_introvert','studies_flow'];
                             User[message.user].type = 'introvert';
                             bot.reply(message,string.introvertQuickreplyMenu);
                         } else {
+                            User[message.user][array] = ['family_extrovert','studies_flow'];
                             User[message.user].type = 'extrovert';
                             bot.reply(message,string.extrovertQuickreplyMenu);
                         }
                     } else {
                         convo.repeat();
+                        convo.next();
                     }
                 })
             })
