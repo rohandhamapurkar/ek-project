@@ -417,7 +417,7 @@
                 }
                 this.question = this.questions[this.quesIndex];
                 if (this.quesIndex == this.questions.length) {
-                    if (this.counter3 < 4 || true) {
+                    if (this.counter3 < 4) {
                         if (this.counter1 >= 18) {
                             this.result = 'Your personality is of a Strong Extrovert'
                             this.pin = "The personality test is now complete your session pin is: "+ (Math.floor(Math.random() * 498)+ 501);
