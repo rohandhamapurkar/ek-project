@@ -14,7 +14,7 @@ module.exports = function (controller, bot, apiai,User) {
             User[message.user]["sessionId"] = resp.result.sessionId;
             bot.startConversation(message, function (err, convo) {
                 convo.ask("Please enter your token.", function (response, convo) {
-                    if(Number.isInteger(response.text)){
+                    if(Number.isInteger(Number(response.text))){
                         let a = Number(response.text);
                         convo.stop();
                         if(a<=500){
@@ -52,7 +52,7 @@ module.exports = function (controller, bot, apiai,User) {
 
             bot.startConversation(message, function (err, convo) {
                 convo.ask("Please enter your token.", function (response, convo) {
-                    if(Number.isInteger(response.text)){
+                    if(Number.isInteger(Number(response.text))){
                         let a = Number(response.text);
                         convo.stop();
                         if(a<=500){
