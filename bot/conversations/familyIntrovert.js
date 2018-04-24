@@ -3,7 +3,7 @@ module.exports = function(controller,bot,apiai,User,tone_analyzer){
     apiai.action('family_introvert',function (message, resp, bot) {
         let index = User[message.user]["array"].indexOf('family_introvert');
         if (index > -1) {
-            arr.splice(index, 1);
+            User[message.user]["array"].splice(index, 1);
         }
         let template = Object.assign({},string.testQuickreply);
         template.quick_replies = [];
