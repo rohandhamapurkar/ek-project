@@ -140,7 +140,7 @@ module.exports = function(controller,bot,apiai,User,tone_analyzer){
                         }
                         convo.stop();
                         if(User[message.user]["array"].length>0){
-                            message.text = User[message.user]["array"][Math.floor(Math.random() * array.length)]
+                            message.text = User[message.user]["array"][Math.floor(Math.random() * User[message.user]["array"].length)]
                             apiai.process(message,bot);
                         } else {
                             controller.trigger('conclusion',[bot,message]);
