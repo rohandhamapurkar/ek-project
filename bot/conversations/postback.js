@@ -11,7 +11,6 @@ module.exports = function (controller, bot, apiai,User) {
         }
         if (payload.text === string.getStarted) {
             User[message.user] = {}
-            User[message.user]["sessionId"] = resp.result.sessionId;
             bot.startConversation(message, function (err, convo) {
                 convo.ask("Please enter your token.", function (response, convo) {
                     if(Number.isInteger(Number(response.text))){
