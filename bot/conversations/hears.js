@@ -1,3 +1,4 @@
+const string = require('../strings')
 module.exports = function (controller, bot, apiai,User) {
     controller.hears('.*','message_received',function(bot,message){
         console.log(message);
