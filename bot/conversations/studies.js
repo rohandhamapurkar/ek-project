@@ -233,7 +233,12 @@ module.exports = function(controller,bot,apiai,User,tone_analyzer){
             });
         });
     }).action('talk_no',function (message, resp, bot) {
-        let template = Object.assign({},string.testQuickreplyMenu);
+        let template = null;
+        if(User[message.user].type == 'introvert'){
+            template = Object.assign({},string.introvertQuickreplyMenu);
+        } else {
+            template = Object.assign({},string.extrovertQuickreplyMenu);
+        }
         template.text = "Would you like to talk about something else?"
         bot.reply(message,template);
     }).action('reason_no',function (message, resp, bot) {
