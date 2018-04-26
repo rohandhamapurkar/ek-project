@@ -22,30 +22,37 @@ module.exports = function (controller, bot, apiai,User) {
     apiai.action('smalltalk.greetings.hello', function (message, resp, bot) {
         User[message.user] = {};
         User[message.user]["sessionId"] = resp.result.sessionId;
-        bot.reply(message,resp.result.fulfillment.speech,function(err){
-            bot.startConversation(message, function (err, convo) {
-                convo.ask("Please enter your token.", function (response, convo) {
-                    console.log(Number.isInteger(response.text));
-                    if(Number.isInteger(Number(response.text))){
-                        let a = Number(response.text);
-                        convo.stop();
-                        if(a<=500){
-                            User[message.user]["array"] = ['family_introvert','studies_flow'];
-                            User[message.user]['intent'] = [];
-                            User[message.user].type = 'introvert';
-                            bot.reply(message,string.introvertQuickreplyMenu);
-                        } else {
-                            User[message.user]["array"] = ['family_extrovert','studies_flow'];
-                            User[message.user]['intent'] = [];
-                            User[message.user].type = 'extrovert';
-                            bot.reply(message,string.extrovertQuickreplyMenu);
-                        }
-                    } else {
-                        convo.repeat();
-                        convo.next();
-                    }
+        bot.getMessageUser(message,function(err,profile){
+            bot.reply(message,"Hey "+profile.first_name+" EmoBOT here!",function(err){
+                bot.reply(message,"So glad you reached out.",function(err){
+                    bot.startConversation(message, function (err, convo) {
+                        convo.ask("Lets get started by entering your token.", function (response, convo) {
+                            console.log(Number.isInteger(response.text));
+                            if(Number.isInteger(Number(response.text))){
+                                let a = Number(response.text);
+                                convo.stop();
+                                if(a<=500){
+                                    User[message.user]["array"] = ['family_introvert','studies_flow'];
+                                    User[message.user]['intent'] = [];
+                                    User[message.user].type = 'introvert';
+                                    bot.reply(message,string.introvertQuickreplyMenu);
+                                } else {
+                                    User[message.user]["array"] = ['family_extrovert','studies_flow'];
+                                    User[message.user]['intent'] = [];
+                                    User[message.user].type = 'extrovert';
+                                    bot.reply(message,string.extrovertQuickreplyMenu);
+                                }
+                            } else {
+                                convo.repeat();
+                                convo.next();
+                            }
+                        })
+                    })
                 })
-            })
-        });
+            });
+            
+        })
+        
+            
     })
 }
