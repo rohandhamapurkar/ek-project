@@ -55,11 +55,6 @@ module.exports = function(controller,bot,apiai,User,tone_analyzer){
             "title":"GrandParents",
             "payload":"GrandParents",
         })
-        template.quick_replies.push({
-            "content_type":"text",
-            "title":"None",
-            "payload":"None",
-        })
         bot.reply(message,template);
     }).action('closest_family',function (message, resp, bot) {
         let template = Object.assign({},string.testQuickreply);
@@ -130,11 +125,6 @@ module.exports = function(controller,bot,apiai,User,tone_analyzer){
         template.quick_replies = [];
         template.text = "";
         template.text = resp.result.fulfillment.speech;
-        template.quick_replies.push({
-            "content_type":"text",
-            "title":"Time",
-            "payload":"Time",
-        })
         template.quick_replies.push({
             "content_type":"text",
             "title":"Dont feel like it",
