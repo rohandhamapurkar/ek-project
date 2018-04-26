@@ -31,8 +31,8 @@ module.exports = function (controller, bot, apiai,User) {
                             bot.reply(message,string.extrovertQuickreplyMenu);
                         }
                     } else {
-                        convo.repeat();
-                        convo.next();
+                        convo.stop();
+                        bot.reply(message,"Invalid token, type hi or press 'start over'");
                     }
                 })
             })
@@ -73,8 +73,8 @@ module.exports = function (controller, bot, apiai,User) {
                             bot.reply(message,string.extrovertQuickreplyMenu);
                         }
                     } else {
-                        convo.repeat();
-                        convo.next();
+                        convo.stop();
+                        bot.reply(message,"Invalid token, type hi or press 'start over'");
                     }
                 })
             })
