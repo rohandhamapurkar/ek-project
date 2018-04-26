@@ -24,7 +24,9 @@ module.exports = function (controller, bot, apiai,User) {
         User[message.user]["sessionId"] = resp.result.sessionId;
         bot.getMessageUser(message,function(err,profile){
             bot.reply(message,"Hey "+profile.first_name+" EmoBOT here!",function(err){
+                console.log(err)
                 bot.reply(message,"So glad you reached out.",function(err){
+                    console.log(err)
                     bot.startConversation(message, function (err, convo) {
                         convo.ask("Lets get started by entering your token.", function (response, convo) {
                             console.log(Number.isInteger(response.text));
