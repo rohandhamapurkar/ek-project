@@ -233,14 +233,20 @@ module.exports = function(controller,bot,apiai,User,tone_analyzer){
             });
         });
     }).action('talk_no',function (message, resp, bot) {
-        let template = null;
-        if(User[message.user].type == 'introvert'){
-            template = Object.assign({},string.introvertQuickreplyMenu);
+        if(User[message.user]["array"].length>0){
+            message.text = User[message.user]["array"][Math.floor(Math.random() * User[message.user]["array"].length)]
+            apiai.process(message,bot);
         } else {
-            template = Object.assign({},string.extrovertQuickreplyMenu);
+            controller.trigger('conclusion',[bot,message]);
         }
-        template.text = "Would you like to talk about something else?"
-        bot.reply(message,template);
+        // let template = null;
+        // if(User[message.user].type == 'introvert'){
+        //     template = Object.assign({},string.introvertQuickreplyMenu);
+        // } else {
+        //     template = Object.assign({},string.extrovertQuickreplyMenu);
+        // }
+        // template.text = "Would you like to talk about something else?"
+        // bot.reply(message,template);
     }).action('reason_no',function (message, resp, bot) {
         bot.startConversation(message, function (err, convo) {
             convo.ask("Exactly what about your studies bothers you?", function (response, convo) {
