@@ -11,17 +11,17 @@
                         <h1 class="headline">{{pin}}</h1>
                     </v-card-title>
                     <div class="optionContainer">
-                        <v-btn @click.native="show = !show">Show Result</v-btn>
-                        <v-btn @click.native="qrCode = !qrCode" v-if="lie" >Talk to the bot</v-btn>
+                        <v-btn @click.native="toggleCardExtension(1)">Show Result</v-btn>
+                        <v-btn @click.native="toggleCardExtension(2)" v-if="lie" >Talk to the bot</v-btn>
                         <v-btn v-else @click="restartTest">Retake Test</v-btn>
                     </div>
                     <v-card-text v-show="show">
                         <h1>{{result}}</h1>
                     </v-card-text>
                     <v-card-text v-show="qrCode">
-                        <h1>Scan Code or Open the bot here</h1>
-                        <img src="https://scontent.xx.fbcdn.net/v/t39.8917-6/31477758_1651258178296545_3303334882943434752_n.png?_nc_cat=0&oh=569df829f4c247eaf0b42839797749b1&oe=5B66E496" />
-                        <v-btn href="http://m.me/Beproject-1792068264420337">Open Bot</v-btn>
+                        <h3>Scan Code or Open the bot here</h3>
+                        <img height="256" width="auto" src="https://scontent.xx.fbcdn.net/v/t39.8917-6/31477758_1651258178296545_3303334882943434752_n.png?_nc_cat=0&oh=569df829f4c247eaf0b42839797749b1&oe=5B66E496" /><br>
+                        <v-btn href="https://www.messenger.com/t/1792068264420337">Open Bot</v-btn>
                     </v-card-text>
                 </v-card>
             </v-flex>
@@ -407,6 +407,16 @@
             this.question = this.questions[0];
         },
         methods: {
+            toggleCardExtension(choice) {
+                switch(choice) {
+                    case 1: this.show = !this.show
+                            this.qrCode = false;
+                            break;
+                    case 2: this.qrCode = !this.qrCode
+                            this.show = false;
+                            break;
+                }
+            },
             updateAnswer(data) {
                 this.quesIndex++;
                 this.selectedAnswers.push(data);
