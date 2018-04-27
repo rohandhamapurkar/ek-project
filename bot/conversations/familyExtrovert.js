@@ -56,11 +56,6 @@ module.exports = function(controller,bot,apiai,User,tone_analyzer){
             "title":"GrandParents",
             "payload":"GrandParents",
         })
-        template.quick_replies.push({
-            "content_type":"text",
-            "title":"None",
-            "payload":"None",
-        })
         bot.reply(message,template);
     }).action('family_extrovert_tell_something',function (message, resp, bot) {
         bot.startConversation(message, function (err, convo) {

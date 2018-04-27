@@ -11,8 +11,11 @@ module.exports = function (controller, bot, apiai,User) {
         }
         if (payload.text === string.getStarted) {
             User[message.user] = {}
+            bot.getMessageUser(message,function(err,profile){
+                bot.reply(message,"Hey "+profile.first_name+" EmoBOT here!",function(err){
+                    bot.reply(message,"So glad you reached out.",function(err){
             bot.startConversation(message, function (err, convo) {
-                convo.ask("Please enter your token.", function (response, convo) {
+                convo.ask("Lets get started by entering your token.", function (response, convo) {
                     if(Number.isInteger(Number(response.text))){
                         let a = Number(response.text);
                         convo.stop();
@@ -28,11 +31,14 @@ module.exports = function (controller, bot, apiai,User) {
                             bot.reply(message,string.extrovertQuickreplyMenu);
                         }
                     } else {
-                        convo.repeat();
-                        convo.next();
+                        convo.stop();
+                        bot.reply(message,"Invalid token, type hi or press 'start over'");
                     }
                 })
             })
+        })
+    })
+})
         } else if(payload.text === string.start_over){
             if(User.hasOwnProperty(message.user)){
                 axios.delete("https://api.dialogflow.com/v2/contexts?sessionId=" + User[message.user]["sessionId"], {
@@ -47,8 +53,11 @@ module.exports = function (controller, bot, apiai,User) {
                     });
             }
             User[message.user] = {}
+            bot.getMessageUser(message,function(err,profile){
+                bot.reply(message,"Hey "+profile.first_name+" EmoBOT here!",function(err){
+                    bot.reply(message,"So glad you reached out.",function(err){
             bot.startConversation(message, function (err, convo) {
-                convo.ask("Please enter your token.", function (response, convo) {
+                convo.ask("Lets get started by entering your token.", function (response, convo) {
                     if(Number.isInteger(Number(response.text))){
                         let a = Number(response.text);
                         convo.stop();
@@ -64,11 +73,14 @@ module.exports = function (controller, bot, apiai,User) {
                             bot.reply(message,string.extrovertQuickreplyMenu);
                         }
                     } else {
-                        convo.repeat();
-                        convo.next();
+                        convo.stop();
+                        bot.reply(message,"Invalid token, type hi or press 'start over'");
                     }
                 })
             })
+        })
+    })
+})
 
         }
     })

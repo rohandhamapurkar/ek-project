@@ -7,7 +7,7 @@
         <v-footer height="auto" :fixed=true>
             <v-card flat tile class="black white--text text-xs-center" style="width:100%">
                 <v-card-text class="white--text">
-                    &copy;2018 — <strong>Vuetify</strong><spacer></spacer><br>
+                    &copy;2018 — <strong>Vuetify</strong><br>
                     <strong><a style="text-decoration:none;" href="http://youtube.com">Back Home</a></strong>
                 </v-card-text>
             </v-card>
