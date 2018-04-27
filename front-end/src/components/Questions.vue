@@ -12,11 +12,16 @@
                     </v-card-title>
                     <div class="optionContainer">
                         <v-btn @click.native="show = !show">Show Result</v-btn>
-                        <v-btn v-if="lie" href="http://m.me/Beproject-1792068264420337">Talk to the bot</v-btn>
+                        <v-btn @click.native="qrCode = !qrCode" v-if="lie" >Talk to the bot</v-btn>
                         <v-btn v-else @click="restartTest">Retake Test</v-btn>
                     </div>
                     <v-card-text v-show="show">
                         <h1>{{result}}</h1>
+                    </v-card-text>
+                    <v-card-text v-show="qrCode">
+                        <h1>Scan Code or Open the bot here</h1>
+                        <img src="https://scontent.xx.fbcdn.net/v/t39.8917-6/31477758_1651258178296545_3303334882943434752_n.png?_nc_cat=0&oh=569df829f4c247eaf0b42839797749b1&oe=5B66E496" />
+                        <v-btn href="http://m.me/Beproject-1792068264420337">Open Bot</v-btn>
                     </v-card-text>
                 </v-card>
             </v-flex>
@@ -32,6 +37,7 @@
         data() {
             return {
                 show: false,
+                qrCode: false,
                 // questions: ['1.Do you often long for excitement?',
                 //     '2.Do you often need understanding friends to cheer you up?',
                 //     '3.Are you usually carefree?',
@@ -94,6 +100,7 @@
                         question: 'Do you often long for excitement?',
                         index: '0'
                     },
+                    /*
                     // {
                     //     question: 'Do you often need understanding friends to cheer you up?',
                     //     index: '1'
@@ -318,6 +325,7 @@
                     //     question: 'Do you suffer from sleeplessness?',
                     //     index: '56'
                     // }
+                    */
                 ],
                 question: '',
                 quesIndex: 0,
